@@ -1,50 +1,53 @@
 /*
-	Shamaan, Alexander (team leader)
-	Cruz, Alejandro
-	Truong, Andrew
-	Truong, Phillip
+    Shamaan, Alexander (team leader)
+    Cruz, Alejandro
+    Truong, Andrew
+    Truong, Phillip
 
-	Fall 2025
-	CS A250 - C++ 2
+    Fall 2025
+    CS A250 - C++ 2
 
-	Bot Elections
+    Bot Elections
 */
 
 #include "FileReader.h"
+#include "BotType.h"
 
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <vector>
 
 using namespace std;
 
 void readBotData(BotList& botList)
 {
-	ifstream inputBotFile("bots.csv");
-	if (!inputBotFile.is_open())
-	{
-		cerr << "*** Error opening bots.csv" << endl;
-	}
-	else
-	{
-		string botLine,
-			botName,
-			botAbility,
-			botTrait;
+    ifstream inputBotFile("bots.csv");
+    if (!inputBotFile.is_open())
+    {
+        cerr << "*** Error opening bots.csv" << endl;
+    }
+    else
+    {
+        string botLine,
+            botName,
+            botAbility,
+            botTrait;
 
-		getline(inputBotFile, botLine);
-		while (getline(inputBotFile, botLine))
-		{
-			stringstream botStream(botLine);
-			getline(botStream, botName, ',');
+        getline(inputBotFile, botLine);
+        while (getline(inputBotFile, botLine))
+        {
+            stringstream botStream(botLine);
+            getline(botStream, botName, ',');
             getline(botStream, botAbility, ',');
             getline(botStream, botTrait);
 
-            botList.insertBot(
-                BotType(botName, botAbility, botTrait));
-		}
-	}
+            BotType aBot(botName, botAbility, botTrait);
+
+            botList.insertBot(aBot);
+        }
+    }
     inputBotFile.close();
 }
 void readElectionResults(Election& electionResults)
@@ -82,7 +85,7 @@ void readElectionResults(Election& electionResults)
                 votesForBot.push_back(stoi(cell));
             }
 
-            electronResults.addBots(botName, votesForBot);
+            electionResults.addBots(botName, votesForBot);
         }
 
     }

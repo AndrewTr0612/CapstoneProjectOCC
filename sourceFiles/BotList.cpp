@@ -1,5 +1,7 @@
 #include "BotList.h"
 
+using namespace std;
+
 void BotList::insertBot(BotType& theBot)
 {
 	aBotSet.insert(theBot);

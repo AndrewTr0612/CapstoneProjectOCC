@@ -10,14 +10,14 @@ class BotList
 public:
 	void insertBot(BotType& theBot);
 	int getCount() const;
-	std::bool getBotByName(const std::string& name, BotType& outBot);
-	std::bool isEmpty() const;
+	bool getBotByName(const std::string& name, BotType& outBot);
+	bool isEmpty() const;
 	void printAllBotsNames() const;
 	void printAllBotsInfo() const;
 
 private:
 
-	set<BotType> aBotSet;
+	std::set<BotType> aBotSet;
 };
 
 #endif

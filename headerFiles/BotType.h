@@ -3,12 +3,15 @@
 
 #include <string>
 
+using namespace std;
+
 class BotType
 {
 public:
 	BotType() {}
-	BotType(const string& botName,const string& botAbility, const string& botTrait)
-		: name(botName), ability(botAbility), trait(botTrait) {}
+	BotType(const string& botName, const string& botAbility, const string& botTrait)
+		: name(botName), ability(botAbility), trait(botTrait) {
+	}
 
 	string getBotName() const { return name; }
 	string getBotAbility() const { return ability; }
