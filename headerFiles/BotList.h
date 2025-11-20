@@ -1,7 +1,8 @@
 #ifndef BOTLIST_H
 #define BOTLIST_H
 
-#include "BotType.cpp"
+#include "BotType.h"
+
 #include <set>
 
 class BotList

@@ -1,6 +1,4 @@
 #include "BotList.h"
-#include <iostream>
-using namespace std;
 
 void BotList::insertBot(BotType& theBot)
 {
@@ -12,9 +10,23 @@ int BotList::getCount() const
 	return static_cast<int>(aBotSet.size());
 }
 
-bool BotList::getBotByName(const string& name, BotType& outBot) 
+bool BotList::getBotByName(const string& name, BotType& outBot)
 {
-	
+	auto iterSet = aBotSet.begin();
+	auto iterSetEnd = aBotSet.end();
+
+	while (iterSet != iterSetEnd)
+	{
+		if (iterSet->getBotName() == name)
+		{
+			outBot = *iterSet;
+			return true;
+		}
+		else
+			++iterSet;
+	}
+
+	return false;
 }
 
 bool BotList::isEmpty() const

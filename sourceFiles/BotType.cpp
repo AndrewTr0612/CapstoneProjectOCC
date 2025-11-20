@@ -1,6 +1,7 @@
 #include "BotType.h"
 
 #include <iostream>
+
 using namespace std;
 
 void BotType::printBotName() const
