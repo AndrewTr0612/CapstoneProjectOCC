@@ -1,11 +1,19 @@
 /*
-	(name header)
+	Shamaan, Alexander (team leader)
+	Cruz, Alejandro
+	Truong, Andrew
+	Truong, Phillip
+
+	Fall 2025
+	CS A250 - C++ 2
+
+	Bot Elections
 */
 
 #include <iostream>
 #include "BotType.h"
 #include "BotList.h"
-#include "Election.h"
+// #include "Election.h"
 #include "FileReader.h"
 
 using namespace std;
@@ -35,7 +43,7 @@ int main()
     aBot1.getBotTrait();
     
     BotType aBot2("AlphaBot", "AlphaAbility", "AlphaTrait");
-    cout << aBot1 < aBot2;
+    cout << (aBot1 < aBot2) << endl; // Expected: 0 (false)
     cout << "===== PHASE 2: Testing BotList (manual insert) =====\n\n";
 
     // Create BotList object.
@@ -44,46 +52,49 @@ int main()
     
     // Test BotList::isEmpty() on an empty list
     // Your code here...
-    cout << botList.isEmpty() << endl;
+    cout << botList1.isEmpty() << endl;
     // Create and insert a few bots in the list.
     // Your code here...
-    botList.insertBot("ChatGPT", "OpenAI", 2022, "Language Model");
-    botList.insertBot("DALL-E", "OpenAI", 2021, "Image Generation");
-    botList.insertBot("AlphaGo", "DeepMind", 2015, "Game Playing");
+    BotType bot1("ChatGPT", "Language Model", "OpenAI");
+    botList1.insertBot(bot1);
+    BotType bot2("DALL-E", "Image Generation", "OpenAI");
+    botList1.insertBot(bot2);
+    BotType bot3("AlphaGo", "Game Playing", "DeepMind");
+    botList1.insertBot(bot3);
     // Test BotList::getCount()
     // Your code here...
-    cout << botList.getCount() << endl;
+    cout << botList1.getCount() << endl;
     // Test BotList::isEmpty()
     // Your code here...
-    cout << botList.isEmpty() << endl;
+    cout << botList1.isEmpty() << endl;
     // Test BotList::printAllBotsNames()
     // Your code here...
-    botList.printAllBotsNames();
+    botList1.printAllBotsNames();
     // Test BotList::printAllBotsInfo()
     // Your code here...
-    botList.printAllBotsInfo();
+    botList1.printAllBotsInfo();
     // Test BotList::getBotByName() - found case
     // Your code here...
-    cout << botList.getBotByName("ChatGPT", botList1) << endl;
+    cout << botList1.getBotByName("ChatGPT", aBot1) << endl;
     // Create a BotList object.   
     // Your code here...
     BotList botList2;
     // Test BotList::getBotByName() - not found case 
     // Expected result: returns false AND outBot must remain unchanged.
     // Your code here...
-    cout << getBotByName("Pollo", botList2);
+    cout <<botList2.getBotByName("ChatGPT",aBot2) << endl;
 
     cout << "===== PHASE 3: Testing FileReader with bots.csv =====\n\n";
 
     // Create a BotList object.
     // Your code here...
-
+    BotList botList3;
     // Test BotList::getCount
     // Your code here...
-
+    botList3.getCount();
     // Call readBotData
     // Your code here...
-
+    botList3.readBotData();
     // After calling readBotData, verify:
     // fileBotList.getCount() == number of bots in bots.csv
     // AND printed bot info matches the file data exactly.
