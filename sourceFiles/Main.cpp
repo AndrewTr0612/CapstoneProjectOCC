@@ -24,42 +24,54 @@ int main()
 
     // Test default constructor, BotType::printBotInfo().
     // Your code here...
-
+    BotType aBot1;
     // Test parameterized constructor + all accessors + all print functions.
     // Your code here...
-
+    aBot1 = BotType("TestBot", "TestingAbility", "TestingTrait");
+    aBot1.printBotName();
+    aBot1.printBotInfo();
+    aBot1.getBotName();
+    aBot1.getBotAbility();
+    aBot1.getBotTrait();
+    
+    BotType aBot2("AlphaBot", "AlphaAbility", "AlphaTrait");
+    cout << aBot1 < aBot2;
     cout << "===== PHASE 2: Testing BotList (manual insert) =====\n\n";
 
     // Create BotList object.
     // Your code here...
-
+    BotList botList1 = BotList();
+    
     // Test BotList::isEmpty() on an empty list
     // Your code here...
-
+    cout << botList.isEmpty() << endl;
     // Create and insert a few bots in the list.
     // Your code here...
-
+    botList.insertBot("ChatGPT", "OpenAI", 2022, "Language Model");
+    botList.insertBot("DALL-E", "OpenAI", 2021, "Image Generation");
+    botList.insertBot("AlphaGo", "DeepMind", 2015, "Game Playing");
     // Test BotList::getCount()
     // Your code here...
-
+    cout << botList.getCount() << endl;
     // Test BotList::isEmpty()
     // Your code here...
-
+    cout << botList.isEmpty() << endl;
     // Test BotList::printAllBotsNames()
     // Your code here...
-
+    botList.printAllBotsNames();
     // Test BotList::printAllBotsInfo()
     // Your code here...
-
+    botList.printAllBotsInfo();
     // Test BotList::getBotByName() - found case
     // Your code here...
-    
+    cout << botList.getBotByName("ChatGPT", botList1) << endl;
     // Create a BotList object.   
     // Your code here...
-
+    BotList botList2;
     // Test BotList::getBotByName() - not found case 
     // Expected result: returns false AND outBot must remain unchanged.
     // Your code here...
+    cout << getBotByName("Pollo", botList2);
 
     cout << "===== PHASE 3: Testing FileReader with bots.csv =====\n\n";
 
