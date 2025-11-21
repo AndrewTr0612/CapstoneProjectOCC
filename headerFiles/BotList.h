@@ -33,7 +33,6 @@ public:
 	void printAllBotsInfo() const;
 
 private:
-
 	std::set<BotType> aBotSet;
 };
 

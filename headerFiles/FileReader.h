@@ -17,7 +17,6 @@
 #include "Election.h"
 
 void readBotData(BotList& botList);
-
 void readElectionResults(Election& electionResults);
 
 #endif
