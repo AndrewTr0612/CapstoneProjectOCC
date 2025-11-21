@@ -1,4 +1,4 @@
-#include "election.h"
+#include "Election.h"
 #include <iostream>
 #include <numeric>
 #include <algorithm>
@@ -120,24 +120,23 @@ void Election::printWinner() const {
 }
 void Election::printFinalResults() const
 {
-    cout << left << setw(20) << "Bot Name";
+    cout  << setw(20) << left << "Bot Name";
     for (const string& club : clubs)
     {
-        cout << setw(10) << club;
+        cout << setw(10) << left << club;
     }
-    cout << setw(10) << "Total" << endl;
+    cout << setw(10) << right <<"Total" << endl << endl;
     for (const auto& pair : electoralVotes)
     {
         const string& botName = pair.first;
         const vector<int>& votes = pair.second;
         int totalVotes = 0;
-        cout << left << setw(20) << botName;
-
+        cout  << setw(20) << left << botName;
         for (int vote : votes)
         {
-            cout << setw(10) << vote;
+            cout << setw(10) << left << vote;
             totalVotes += vote;
         }
-        cout << setw(10) << totalVotes << endl;
+        cout << setw(10) << left << totalVotes << endl;
     }
 }
