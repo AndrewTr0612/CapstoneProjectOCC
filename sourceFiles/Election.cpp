@@ -58,7 +58,7 @@ void Election::printBotVotesFromClub(const string& botName, const string& clubNa
     }
     else
     {
-        clubIndex = distance(clubs.begin(), clubIter);
+        clubIndex = static_cast<int>(distance(clubs.begin(), clubIter));
     }
 
     auto botIter = electoralVotes.find(botName);
