@@ -133,7 +133,6 @@ int main()
     election1.printBotVotesFromClub("EcoMentor", "NetClub");
     election1.printBotTotalVotes("SynthSage");
     election1.printWinner();
-    cout <<endl;
     election1.printFinalResults();
 
     cout << "===== All tests completed. =====\n";
