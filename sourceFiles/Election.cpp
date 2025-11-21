@@ -73,7 +73,7 @@ void Election::printBotVotesFromClub(const string& botName, const string& clubNa
     {
         const vector<int>& votes = botIter->second;
         int voteCount = votes.at(clubIndex);
-        cout << botName << " received " << voteCount << " votes from " << clubName << endl;
+        cout << botName << " received " << voteCount << " votes from " << clubName << "." << endl;
     }
 
 }
