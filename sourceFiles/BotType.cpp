@@ -6,14 +6,12 @@ using namespace std;
 
 void BotType::printBotName() const
 {
-	cout << "Name: " << name << endl;
+	cout << name << endl;
 }
 
 void BotType::printBotInfo() const
 {
-	cout << "Name: " << name
-		<< "\nAbility: " << ability
-		<< "\nTrait: " << trait << endl;
+	cout << name << "\t\t" << ability << "\t\t" << trait << endl;
 }
 
 bool BotType::operator< (const BotType& paramBot) const

@@ -1,6 +1,9 @@
 #include "BotList.h"
 
+#include <iostream>
+
 using namespace std;
+
 
 void BotList::insertBot(BotType& theBot)
 {
@@ -38,6 +41,8 @@ bool BotList::isEmpty() const
 
 void BotList::printAllBotsNames() const
 {
+	cout << "Names:\n";
+
 	for (const auto& aBot : aBotSet)
 	{
 		aBot.printBotName();
@@ -46,6 +51,8 @@ void BotList::printAllBotsNames() const
 
 void BotList::printAllBotsInfo() const
 {
+	cout << "Name\t\t\tAbility\t\t\tTrait\n";
+
 	for (const auto& aBot : aBotSet)
 	{
 		aBot.printBotInfo();
