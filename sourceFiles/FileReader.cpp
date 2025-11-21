@@ -24,6 +24,7 @@ using namespace std;
 void readBotData(BotList& botList)
 {
     ifstream inputBotFile("bots.csv");
+
     if (!inputBotFile.is_open())
     {
         cerr << "*** Error opening bots.csv" << endl;
@@ -36,6 +37,7 @@ void readBotData(BotList& botList)
             botTrait;
 
         getline(inputBotFile, botLine);
+
         while (getline(inputBotFile, botLine))
         {
             stringstream botStream(botLine);
@@ -44,15 +46,16 @@ void readBotData(BotList& botList)
             getline(botStream, botTrait);
 
             BotType aBot(botName, botAbility, botTrait);
-
             botList.insertBot(aBot);
         }
     }
     inputBotFile.close();
 }
+
 void readElectionResults(Election& electionResults)
 {
     ifstream inputVoteFile("votes.csv");
+
     if (!inputVoteFile.is_open())
     {
         cerr << "*** Error opening votes.csv" << endl;
@@ -64,22 +67,24 @@ void readElectionResults(Election& electionResults)
         stringstream voteStream(voteLine);
 
         string cell;
-        vector<string> clubNames;
         getline(voteStream, cell, ',');
+        vector<string> clubNames;
+
         while (getline(voteStream, cell, ','))
         {
             clubNames.push_back(cell);
         }
-        electionResults.addClubs(clubNames);
 
+        electionResults.addClubs(clubNames);
         string botName;
+
         while (getline(inputVoteFile, voteLine))
         {
             voteStream.clear();
             voteStream.str(voteLine);
             getline(voteStream, botName, ',');
-
             vector<int> votesForBot;
+
             while (getline(voteStream, cell, ','))
             {
                 votesForBot.push_back(stoi(cell));
