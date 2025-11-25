@@ -49,7 +49,6 @@ void exitMessage()
     cout << "   May the best bot serve wisely. Goodbye!" << endl;
     cout << string(45, '-') << endl;
     cout << endl;
-    cout << "Press any key to continue . . . " << endl;
 }
 
 
@@ -57,6 +56,8 @@ void exitMessage()
 void noDataMessage()
 {
 	// Your code here...
+    cout << "\t*** No data is available.\n"
+         << "\t*** Please contact the administrator." << endl;
 }
 
 
