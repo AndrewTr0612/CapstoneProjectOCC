@@ -20,6 +20,12 @@
 
 using namespace std;
 
+vector<string> CLUB_ABBREVIATIONS
+{
+    "NL", "RG", "EC", "AE", "CH",
+    "NC", "AX", "BL", "CY", "DL"
+};
+
 void Election::addClubs(const vector<string>& theClubs)
 {
     clubs = theClubs;
@@ -161,5 +167,20 @@ void Election::printFinalResults() const
         }
 
         cout << setw(10) << left << totalVotes << endl;
+    }
+}
+
+void Election::printAllClubs() const
+{
+    cout << '\t'
+         << left << setw(9) << "Club"
+         << "(abbreviation)"
+         << string(18, '-') << '\n';
+    
+    for (size_t i = 0; i < NUM_CLUBS; ++i)
+    {
+        cout << '\t'
+             << left << setw(9) << clubs[i]
+             << '(' << CLUB_ABBREVIATIONS[i] << ")\n";
     }
 }
