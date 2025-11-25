@@ -23,7 +23,7 @@ void BotType::printBotName() const
 
 void BotType::printBotInfo() const
 {
-	cout << name << "\t\t" << ability << "\t\t" << trait << endl;
+	cout << "\t" << name << "\t(" << ability << ", " << trait << ")" << endl;
 }
 
 bool BotType::operator< (const BotType& paramBot) const
