@@ -129,9 +129,6 @@ void processMenu(const BotList& botList, const Election& election)
                 break;
         }
     }
-    cout << string(60, '-')
-         << "\n  Thanks for running the STEM Bot Election!"
-         << "\n   May the best bot serve wisely. Goodbye!\n"
-         << string(60, '-') << "\n\n";
+    exitMessage();
     system("Pause");
 }
