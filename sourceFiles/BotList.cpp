@@ -28,18 +28,13 @@ int BotList::getCount() const
 
 bool BotList::getBotByName(const string& name, BotType& outBot)
 {
-	auto iterSet = aBotSet.begin();
-	auto iterSetEnd = aBotSet.end();
+	BotType tempBotType(name, "", "");
+	auto iterSet = aBotSet.find(tempBotType);
 
-	while (iterSet != iterSetEnd)
+	if (iterSet != aBotSet.end())
 	{
-		if (iterSet->getBotName() == name)
-		{
-			outBot = *iterSet;
-			return true;
-		}
-		else
-			++iterSet;
+		outBot = *iterSet;
+		return true;
 	}
 
 	return false;

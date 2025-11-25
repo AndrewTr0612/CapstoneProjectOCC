@@ -153,7 +153,7 @@ int main()
     // Your code here...
     election1.printAllBots();
     election1.printBotVotesFromClub("EcoMentor", "NetClub");
-    election1.printBotTotalVotes("SynthSage");
+    election1.printBotTotalVotes("EcoMentor");
     election1.printWinner();
     election1.printFinalResults();
 

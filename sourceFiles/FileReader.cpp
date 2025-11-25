@@ -27,7 +27,7 @@ void readBotData(BotList& botList)
 
     if (!inputBotFile.is_open())
     {
-        cerr << "*** Error opening bots.csv" << endl;
+        cerr << "*** Error opening bots.csv." << endl;
     }
     else
     {
@@ -58,14 +58,14 @@ void readElectionResults(Election& electionResults)
 
     if (!inputVoteFile.is_open())
     {
-        cerr << "*** Error opening votes.csv" << endl;
+        cerr << "*** Error opening votes.csv." << endl;
     }
     else
     {
         string voteLine;
         getline(inputVoteFile, voteLine);
-        stringstream voteStream(voteLine);
 
+        stringstream voteStream(voteLine);
         string cell;
         getline(voteStream, cell, ',');
         vector<string> clubNames;

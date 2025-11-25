@@ -32,7 +32,7 @@ void Election::addBots(const string& botName, const vector<int>& votesForBot)
 
 bool Election::noDataFound() const
 {
-    return electoralVotes.empty();
+    return (clubs.empty() || electoralVotes.empty());
 }
 
 void Election::printAllBots() const
@@ -58,7 +58,7 @@ void Election::printBotVotesFromClub(const string& botName, const string& clubNa
     }
     else
     {
-        clubIndex = distance(clubs.begin(), clubIter);
+        clubIndex = static_cast<int>(distance(clubs.begin(), clubIter));
     }
 
     auto botIter = electoralVotes.find(botName);
@@ -73,10 +73,11 @@ void Election::printBotVotesFromClub(const string& botName, const string& clubNa
     {
         const vector<int>& votes = botIter->second;
         int voteCount = votes.at(clubIndex);
-        cout << botName << " received " << voteCount << " votes from " << clubName << endl;
+        cout << botName << " received " << voteCount << " votes from " << clubName << "." << endl;
     }
 
 }
+
 void Election::printBotTotalVotes(const string& botName) const
 {
 
@@ -101,6 +102,7 @@ void Election::printBotTotalVotes(const string& botName) const
         cout << botName << " received a total of " << totalVotes << " votes." << endl;
     }
 }
+
 void Election::printWinner() const
 {
     string winningBot;
@@ -126,13 +128,14 @@ void Election::printWinner() const
 
     if (!winningBot.empty())
     {
-        cout << "The winning bot is " << winningBot << " with " << highestVotes << " votes." << endl;
+        cout << "The winning bot is " << winningBot << " with " << highestVotes << " votes." << endl << endl;
     }
     else
     {
-        cout << "No votes were cast." << endl;
+        cout << "No votes were cast." << endl << endl;
     }
 }
+
 void Election::printFinalResults() const
 {
     cout << setw(20) << left << "Bot Name";
@@ -142,7 +145,7 @@ void Election::printFinalResults() const
         cout << setw(10) << left << club;
     }
 
-    cout << setw(10) << right << "Total" << endl << endl;
+    cout << setw(5) << right << "Total" << endl;
 
     for (const auto& pair : electoralVotes)
     {
