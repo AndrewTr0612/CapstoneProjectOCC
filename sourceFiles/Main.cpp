@@ -158,6 +158,8 @@ int main()
     election1.printWinner();
     election1.printFinalResults();
 
+    exitMessage();
+
     cout << "===== All tests completed. =====\n";
 
     cout << endl;
