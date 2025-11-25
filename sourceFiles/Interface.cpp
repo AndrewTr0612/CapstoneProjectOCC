@@ -30,7 +30,13 @@ void displayMenu()
 // Definition function exitMessage
 void exitMessage()
 {
-	// Your code here...
+    // Your code here...
+    cout << string(45, '-') << endl;
+    cout << "  Thanks for running the STEM Bot Election!" << endl;
+    cout << "   May the best bot serve wisely. Goodbye!" << endl;
+    cout << string(45, '-') << endl;
+    cout << endl;
+    cout << "Press any key to continue . . . " << endl;
 }
 
 
