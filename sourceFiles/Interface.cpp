@@ -36,7 +36,7 @@ void displayMenu()
         << "\t4: Print a bot's total votes\n"
         << "\t5: Print winner\n"
         << "\t6: Print final results\n"
-        << "\t7: To exit" << endl;
+        << "\t7: To exit\n" << endl;
 }
 
 
@@ -69,7 +69,7 @@ void processMenu(const BotList& botList, const Election& election)
     {
         cout << "Enter your choice: ";
         cin >> userChoice;
-        cout << "\n\n";
+        cout << "\n";
         switch(userChoice)
         {
             case 1:
@@ -94,11 +94,11 @@ void processMenu(const BotList& botList, const Election& election)
                     string botName;
                     cin >> botName;
 
-                    cout << "\nEnter club's name: ";
+                    cout << "Enter club's name: ";
                     string clubName;
                     cin >> clubName;
                     
-                    cout << "\n\n";
+                    cout << "\n\t";
                     election.printBotVotesFromClub(
                         botName, clubName);
                 }
@@ -111,7 +111,7 @@ void processMenu(const BotList& botList, const Election& election)
                     cout << "Enter bot's name: ";
                     string botName;
                     cin >> botName;
-
+                    cout << "\n\t";
                     election.printBotTotalVotes(botName);
                 }
                 break;
@@ -128,7 +128,9 @@ void processMenu(const BotList& botList, const Election& election)
                     election.printFinalResults();
                 break;
         }
+        cout << endl;
+        system("Pause");	
     }
     exitMessage();
-    system("Pause");
+    
 }

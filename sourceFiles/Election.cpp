@@ -1,17 +1,4 @@
-/*
-    Shamaan, Alexander (team leader)
-    Cruz, Alejandro
-    Truong, Andrew
-    Truong, Phillip
-
-    Fall 2025
-    CS A250 - C++ 2
-
-    Bot Elections
-*/
-
 #include "Election.h"
-
 #include <iostream>
 #include <numeric>
 #include <algorithm>
@@ -19,12 +6,6 @@
 #include <iomanip> 
 
 using namespace std;
-
-vector<string> CLUB_ABBREVIATIONS
-{
-    "NL", "RG", "EC", "AE", "CH",
-    "NC", "AX", "BL", "CY", "DL"
-};
 
 void Election::addClubs(const vector<string>& theClubs)
 {
@@ -38,13 +19,12 @@ void Election::addBots(const string& botName, const vector<int>& votesForBot)
 
 bool Election::noDataFound() const
 {
-    return (clubs.empty() || electoralVotes.empty());
+    return electoralVotes.empty();
 }
 
 void Election::printAllBots() const
 {
     cout << "Bots participating in the election:\n";
-
     for (const auto& pair : electoralVotes)
     {
         cout << "- " << pair.first << "\n";
@@ -55,21 +35,23 @@ void Election::printBotVotesFromClub(const string& botName, const string& clubNa
 {
     bool dataFound = true;
     int clubIndex = -1;
-    auto clubIter = find(clubs.begin(), clubs.end(), clubName);
 
-    if (clubIter == clubs.end())
+    auto clubIt = find(clubs.begin(), clubs.end(), clubName);
+
+    if (clubIt == clubs.end())
     {
         cout << "Error: Club '" << clubName << "' not found." << endl;
         dataFound = false;
     }
     else
     {
-        clubIndex = static_cast<int>(distance(clubs.begin(), clubIter));
+
+        clubIndex = distance(clubs.begin(), clubIt);
     }
 
-    auto botIter = electoralVotes.find(botName);
+    auto botIt = electoralVotes.find(botName);
 
-    if (botIter == electoralVotes.end())
+    if (botIt == electoralVotes.end())
     {
         cout << "Error: Bot '" << botName << "' not found." << endl;
         dataFound = false;
@@ -77,21 +59,21 @@ void Election::printBotVotesFromClub(const string& botName, const string& clubNa
 
     if (dataFound)
     {
-        const vector<int>& votes = botIter->second;
+        const vector<int>& votes = botIt->second;
         int voteCount = votes.at(clubIndex);
-        cout << botName << " received " << voteCount << " votes from " << clubName << "." << endl;
+        cout << botName << " received " << voteCount << " votes from " << clubName << endl;
     }
 
 }
-
 void Election::printBotTotalVotes(const string& botName) const
 {
 
     bool botFound = true;
     int totalVotes = 0;
-    auto botIter = electoralVotes.find(botName);
 
-    if (botIter == electoralVotes.end())
+    auto botIt = electoralVotes.find(botName);
+
+    if (botIt == electoralVotes.end())
     {
         cout << "Error: Bot " << botName << " not found." << endl;
         botFound = false;
@@ -99,7 +81,7 @@ void Election::printBotTotalVotes(const string& botName) const
 
     if (botFound)
     {
-        const vector<int>& votes = botIter->second;
+        const vector<int>& votes = botIt->second;
 
         // Use std::accumulate to sum all votes for the selected bot.
         // It starts the sum at the initial value of 0.
@@ -108,12 +90,10 @@ void Election::printBotTotalVotes(const string& botName) const
         cout << botName << " received a total of " << totalVotes << " votes." << endl;
     }
 }
-
-void Election::printWinner() const
+void Election::printWinner() const 
 {
     string winningBot;
     int highestVotes = -1;
-
     for (const auto& pair : electoralVotes)
     {
         const string& botName = pair.first;
@@ -124,63 +104,45 @@ void Election::printWinner() const
         {
             totalVotes += vote;
         }
-
         if (totalVotes > highestVotes)
         {
             highestVotes = totalVotes;
             winningBot = botName;
         }
     }
-
     if (!winningBot.empty())
     {
-        cout << "The winning bot is " << winningBot << " with " << highestVotes << " votes." << endl << endl;
+        cout << "\tWinner: " << winningBot << " with " << highestVotes << " vote(s)." << endl;
     }
     else
     {
-        cout << "No votes were cast." << endl << endl;
+        cout << "No votes were cast." << endl;
     }
 }
-
 void Election::printFinalResults() const
 {
-    cout << setw(20) << left << "Bot Name";
-
+    cout  << setw(20) << left << "Bot Name";
     for (const string& club : clubs)
     {
         cout << setw(10) << left << club;
     }
-
-    cout << setw(5) << right << "Total" << endl;
-
+    cout << setw(10) << right <<"Total" << endl << endl;
     for (const auto& pair : electoralVotes)
     {
         const string& botName = pair.first;
         const vector<int>& votes = pair.second;
         int totalVotes = 0;
-        cout << setw(20) << left << botName;
-
+        cout  << setw(20) << left << botName;
         for (int vote : votes)
         {
             cout << setw(10) << left << vote;
             totalVotes += vote;
         }
-
         cout << setw(10) << left << totalVotes << endl;
-    }
+    }   
 }
 
 void Election::printAllClubs() const
 {
-    cout << '\t'
-         << left << setw(9) << "Club"
-         << "(abbreviation)"
-         << string(18, '-') << '\n';
-    
-    for (size_t i = 0; i < NUM_CLUBS; ++i)
-    {
-        cout << '\t'
-             << left << setw(9) << clubs[i]
-             << '(' << CLUB_ABBREVIATIONS[i] << ")\n";
-    }
+
 }
