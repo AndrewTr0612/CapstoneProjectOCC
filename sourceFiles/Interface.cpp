@@ -55,82 +55,84 @@ void exitMessage()
 // Definition function noDataMessage
 void noDataMessage()
 {
-	// Your code here...
+    // Your code here...
     cout << "\t*** No data is available.\n"
-         << "\t*** Please contact the administrator." << endl;
+        << "\t*** Please contact the administrator." << endl;
 }
 
 
 // Definition function processMenu
 void processMenu(const BotList& botList, const Election& election)
 {
-	int userChoice = 0;
+    int userChoice = 0;
     while (userChoice != 7)
     {
         cout << "Enter your choice: ";
         cin >> userChoice;
         cout << "\n";
-        switch(userChoice)
+        switch (userChoice)
         {
-            case 1:
-                if (botList.isEmpty())
-                    noDataMessage();
-                else
-                    botList.printAllBotsInfo();
-                break;
-            case 2:
-                if (election.noDataFound())
-                    noDataMessage();
-                else
-                    election.printAllClubs();
-                break;
+        case 1:
+            if (botList.isEmpty())
+                noDataMessage();
+            else
+                botList.printAllBotsInfo();
+            break;
+        case 2:
+            if (election.noDataFound())
+                noDataMessage();
+            else
+                election.printAllClubs();
+            break;
 
-            case 3:
-                if (election.noDataFound())
-                    noDataMessage();
-                else
-                {
-                    cout << "Enter bot's name: ";
-                    string botName;
-                    cin >> botName;
+        case 3:
+            if (election.noDataFound())
+                noDataMessage();
+            else
+            {
+                cout << "Enter bot's name: ";
+                string botName;
+                cin >> botName;
 
-                    cout << "Enter club's name: ";
-                    string clubName;
-                    cin >> clubName;
-                    
-                    cout << "\n\t";
-                    election.printBotVotesFromClub(
-                        botName, clubName);
-                }
-                break;
-            case 4:
-                if (election.noDataFound())
-                    noDataMessage();
-                else
-                {
-                    cout << "Enter bot's name: ";
-                    string botName;
-                    cin >> botName;
-                    cout << "\n\t";
-                    election.printBotTotalVotes(botName);
-                }
-                break;
-            case 5:
-                if (election.noDataFound())
-                    noDataMessage();
-                else
-                    election.printWinner();
-                break;
-            case 6:
-                if (election.noDataFound())
-                    noDataMessage();
-                else
-                    election.printFinalResults();
-                break;
+                cout << "Enter club's name: ";
+                string clubName;
+                cin >> clubName;
+
+                cout << "\n\t";
+                election.printBotVotesFromClub(
+                    botName, clubName);
+            }
+            break;
+        case 4:
+            if (election.noDataFound())
+                noDataMessage();
+            else
+            {
+                cout << "Enter bot's name: ";
+                string botName;
+                cin >> botName;
+                cout << "\n\t";
+                election.printBotTotalVotes(botName);
+            }
+            break;
+        case 5:
+            if (election.noDataFound())
+                noDataMessage();
+            else
+                election.printWinner();
+            break;
+        case 6:
+            if (election.noDataFound())
+                noDataMessage();
+            else
+                election.printFinalResults();
+            break;
         }
         cout << endl;
-        system("Pause");	
+        system("Pause");
+        cout << endl;
+        displayMenu();
     }
     exitMessage();
-    
+
 }
