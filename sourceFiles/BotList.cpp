@@ -60,9 +60,9 @@ void BotList::printAllBotsInfo() const
 {
 	string dash(34, '-');
 
-
-	cout << left << "\tBOT NAME" << setw(27) << right << "(ability, trait)\n\t"
-		<< dash << "\n";
+	cout << left << "\t" << setw(17) << "BOT NAME"
+		 << "(ability, trait)\n\t"
+		 << dash << "\n";
 
 	for (const auto& aBot : aBotSet)
 	{
