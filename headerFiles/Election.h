@@ -24,6 +24,8 @@ public:
 
     void printFinalResults() const;
 
+    void printAllClubs() const;
+
 private:
     std::vector<std::string> clubs;
     std::map<std::string, std::vector<int>>electoralVotes;

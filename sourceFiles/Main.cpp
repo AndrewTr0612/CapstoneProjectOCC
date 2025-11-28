@@ -13,7 +13,7 @@
 #include <iostream>
 #include "BotType.h"
 #include "BotList.h"
-// #include "Election.h"
+ #include "Election.h"
 #include "FileReader.h"
 
 using namespace std;
