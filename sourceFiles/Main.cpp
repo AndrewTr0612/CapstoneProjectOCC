@@ -22,15 +22,13 @@ using namespace std;
 
 int main()
 {
-   
+
     BotList aBotList;
     readBotData(aBotList);
     Election election1;
     readElectionResults(election1);
     displayMenu();
-    processMenu(aBotList ,election1);
-
-    cout << "===== All tests completed. =====\n";
+    processMenu(aBotList, election1);
 
     cout << endl;
     system("Pause");

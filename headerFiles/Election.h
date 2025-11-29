@@ -17,8 +17,6 @@
 #include <map> 
 #include <string>
 
-const int NUM_CLUBS = 10;
-extern std::vector<std::string> CLUB_ABBREVIATIONS;
 
 class Election {
 public:

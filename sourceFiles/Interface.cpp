@@ -27,16 +27,16 @@ void displayMenu()
     string stars(45, '*');
 
     cout << stars << "\n"
-        << "\t\tMAIN MENU\n"
-        << stars << "\n\n"
-        << "Select one of the following:\n\n"
-        << "\t1: Print all bots\n"
-        << "\t2: Print all clubs\n"
-        << "\t3: Print a bot's votes from a club\n"
-        << "\t4: Print a bot's total votes\n"
-        << "\t5: Print winner\n"
-        << "\t6: Print final results\n"
-        << "\t7: To exit\n" << endl;
+         << "\t\tMAIN MENU\n"
+         << stars << "\n\n"
+         << "Select one of the following:\n\n"
+         << "\t1: Print all bots\n"
+         << "\t2: Print all clubs\n"
+         << "\t3: Print a bot's votes from a club\n"
+         << "\t4: Print a bot's total votes\n"
+         << "\t5: Print winner\n"
+         << "\t6: Print final results\n"
+         << "\t7: To exit\n" << endl;
 }
 
 
@@ -44,11 +44,10 @@ void displayMenu()
 void exitMessage()
 {
     // Your code here...
-    cout << string(45, '-') << endl;
-    cout << "  Thanks for running the STEM Bot Election!" << endl;
-    cout << "   May the best bot serve wisely. Goodbye!" << endl;
-    cout << string(45, '-') << endl;
-    cout << endl;
+    cout << string(45, '-') << "\n"
+         << "  Thanks for running the STEM Bot Election!\n"
+         << "   May the best bot serve wisely. Goodbye!\n"
+         << string(45, '-') << endl;
 }
 
 
@@ -57,7 +56,7 @@ void noDataMessage()
 {
     // Your code here...
     cout << "\t*** No data is available.\n"
-        << "\t*** Please contact the administrator." << endl;
+         << "\t*** Please contact the administrator." << endl;
 }
 
 
@@ -65,11 +64,13 @@ void noDataMessage()
 void processMenu(const BotList& botList, const Election& election)
 {
     int userChoice = 0;
+
+    cout << "Enter your choice: ";
+    cin >> userChoice;
+    cout << "\n";
+
     while (userChoice != 7)
     {
-        cout << "Enter your choice: ";
-        cin >> userChoice;
-        cout << "\n";
         switch (userChoice)
         {
         case 1:
@@ -98,11 +99,11 @@ void processMenu(const BotList& botList, const Election& election)
                 string clubName;
                 cin >> clubName;
 
-                cout << "\n\t";
-                election.printBotVotesFromClub(
-                    botName, clubName);
+                cout << "\n";
+                election.printBotVotesFromClub(botName, clubName);
             }
             break;
+
         case 4:
             if (election.noDataFound())
                 noDataMessage();
@@ -111,7 +112,7 @@ void processMenu(const BotList& botList, const Election& election)
                 cout << "Enter bot's name: ";
                 string botName;
                 cin >> botName;
-                cout << "\n\t";
+                
                 election.printBotTotalVotes(botName);
             }
             break;
@@ -132,6 +133,10 @@ void processMenu(const BotList& botList, const Election& election)
         system("Pause");
         cout << endl;
         displayMenu();
+
+        cout << "Enter your choice: ";
+        cin >> userChoice;
+        cout << "\n";
     }
     exitMessage();
 
