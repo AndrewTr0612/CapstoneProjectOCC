@@ -15,9 +15,7 @@
 #include <iostream>
 #include <string>
 
-
 using namespace std;
-
 
 // Definition function displayMenu
 void displayMenu()
@@ -98,7 +96,6 @@ void processMenu(const BotList& botList, const Election& election)
                 string clubName;
                 cin >> clubName;
 
-                cout << "\n";
                 election.printBotVotesFromClub(botName, clubName);
             }
             break;
