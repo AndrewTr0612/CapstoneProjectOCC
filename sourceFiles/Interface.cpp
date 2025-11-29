@@ -76,6 +76,7 @@ void processMenu(const BotList& botList, const Election& election)
             else
                 botList.printAllBotsInfo();
             break;
+
         case 2:
             if (election.noDataFound())
                 noDataMessage();
@@ -112,12 +113,14 @@ void processMenu(const BotList& botList, const Election& election)
                 election.printBotTotalVotes(botName);
             }
             break;
+
         case 5:
             if (election.noDataFound())
                 noDataMessage();
             else
                 election.printWinner();
             break;
+
         case 6:
             if (election.noDataFound())
                 noDataMessage();
@@ -125,6 +128,7 @@ void processMenu(const BotList& botList, const Election& election)
                 election.printFinalResults();
             break;
         }
+
         cout << endl;
         system("Pause");
         cout << endl;
@@ -134,6 +138,7 @@ void processMenu(const BotList& botList, const Election& election)
         cin >> userChoice;
         cout << "\n";
     }
+
     exitMessage();
 
 }
