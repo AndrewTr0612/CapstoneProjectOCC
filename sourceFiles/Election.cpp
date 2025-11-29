@@ -86,7 +86,6 @@ void Election::printBotVotesFromClub(const string& botName, const string& clubNa
         int voteCount = votes.at(clubIndex);
         cout << "\t" << botName << " received " << voteCount << " vote(s) from " << clubName << "." << endl;
     }
-
 }
 
 void Election::printBotTotalVotes(const string& botName) const
