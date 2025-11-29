@@ -58,59 +58,29 @@ void Election::printAllBots() const
 
 void Election::printBotVotesFromClub(const string& botName, const string& clubName) const
 {
-    bool dataFound = true;
-    int clubIndex = -1;
     auto clubIter = find(clubs.begin(), clubs.end(), clubName);
-
-    if (clubIter == clubs.end())
-    {
-        cout << "Error: Club '" << clubName << "' not found." << endl;
-        dataFound = false;
-    }
-    else
-    {
-        clubIndex = static_cast<int>(distance(clubs.begin(), clubIter));
-    }
+    int clubIndex = static_cast<int>(distance(clubs.begin(), clubIter));
 
     auto botIter = electoralVotes.find(botName);
+    const vector<int>& votes = botIter->second;
 
-    if (botIter == electoralVotes.end())
-    {
-        cout << "Error: Bot '" << botName << "' not found." << endl;
-        dataFound = false;
-    }
+    int voteCount = votes.at(clubIndex);
 
-    if (dataFound)
-    {
-        const vector<int>& votes = botIter->second;
-        int voteCount = votes.at(clubIndex);
-        cout << "\t" << botName << " received " << voteCount << " vote(s) from " << clubName << "." << endl;
-    }
+    cout << "\n\t" << botName << " received " << voteCount << " vote(s) from " << clubName << "." << endl;
 }
 
 void Election::printBotTotalVotes(const string& botName) const
 {
-
-    bool botFound = true;
     int totalVotes = 0;
     auto botIter = electoralVotes.find(botName);
 
-    if (botIter == electoralVotes.end())
-    {
-        cout << "Error: Bot " << botName << " not found." << endl;
-        botFound = false;
-    }
+    const vector<int>& votes = botIter->second;
 
-    if (botFound)
-    {
-        const vector<int>& votes = botIter->second;
+    // Use std::accumulate to sum all votes for the selected bot.
+    // It starts the sum at the initial value of 0.
+    totalVotes = accumulate(votes.begin(), votes.end(), 0);
 
-        // Use std::accumulate to sum all votes for the selected bot.
-        // It starts the sum at the initial value of 0.
-        totalVotes = accumulate(votes.begin(), votes.end(), 0);
-
-        cout << "\n\t" botName << " received a total of " << totalVotes << " vote(s)." << endl;
-    }
+    cout << "\n\t" << botName << " received a total of " << totalVotes << " vote(s)." << endl;
 }
 
 void Election::printWinner() const
@@ -136,14 +106,7 @@ void Election::printWinner() const
         }
     }
 
-    if (!winningBot.empty())
-    {
-        cout << "\tWinner: " << winningBot << " with " << highestVotes << " vote(s)." << endl;
-    }
-    else
-    {
-        cout << "\tNo votes were cast." << endl;
-    }
+    cout << "\tWinner: " << winningBot << " with " << highestVotes << " vote(s)." << endl;
 }
 
 void Election::printFinalResults() const

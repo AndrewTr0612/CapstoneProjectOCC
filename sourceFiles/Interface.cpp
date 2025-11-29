@@ -36,7 +36,6 @@ void displayMenu()
          << "\t7: To exit\n" << endl;
 }
 
-
 // Definition function exitMessage
 void exitMessage()
 {
@@ -47,15 +46,13 @@ void exitMessage()
          << string(45, '-') << endl;
 }
 
-
 // Definition function noDataMessage
 void noDataMessage()
 {
     // Your code here...
-    cout << "\t*** No data is available.\n"
+    cerr << "\t*** No data is available.\n"
          << "\t*** Please contact the administrator." << endl;
 }
-
 
 // Definition function processMenu
 void processMenu(const BotList& botList, const Election& election)
@@ -140,5 +137,4 @@ void processMenu(const BotList& botList, const Election& election)
     }
 
     exitMessage();
-
 }
