@@ -28,7 +28,8 @@ const int TOTAL_VOTE_WIDTH = 2;
 const int ALL_CLUBS_WIDTH = 9;
 
 const vector<string> CLUB_ABBREVIATIONS = {
-    "NL", "RG", "EC", "AE", "CH", "NC", "AX", "BL", "CY", "DL"
+    "NL", "RG", "EC", "AE", "CH", 
+    "NC", "AX", "BL", "CY", "DL"
 };
 
 void Election::addClubs(const vector<string>& theClubs)
