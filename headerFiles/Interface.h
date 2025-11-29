@@ -13,15 +13,12 @@
 #ifndef INTERFACE_H
 #define INTERFACE_H
 
-
 #include "Election.h"
 #include "BotList.h"
-
 
 void displayMenu();
 void exitMessage();
 void noDataMessage();
 void processMenu(const BotList& botList, const Election& election);
-
 
 #endif

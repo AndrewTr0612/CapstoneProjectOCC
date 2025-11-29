@@ -22,7 +22,6 @@ using namespace std;
 
 int main()
 {
-
     BotList aBotList;
     readBotData(aBotList);
     Election election1;
