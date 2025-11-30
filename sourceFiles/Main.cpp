@@ -24,10 +24,10 @@ int main()
 {
     BotList aBotList;
     readBotData(aBotList);
-    Election election1;
-    readElectionResults(election1);
+    Election botElection;
+    readElectionResults(botElection);
     displayMenu();
-    processMenu(aBotList, election1);
+    processMenu(aBotList, botElection);
 
     cout << endl;
     system("Pause");
