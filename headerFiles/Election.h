@@ -18,7 +18,10 @@
 #include <string>
 
 const int NUM_CLUBS = 10;
-extern const std::vector<std::string> CLUB_ABBREVIATIONS;
+inline const std::vector<std::string> CLUB_ABBREVIATIONS = {
+    "NL", "RG", "EC", "AE", "CH",
+    "NC", "AX", "BL", "CY", "DL"
+};
 
 class Election {
 public:

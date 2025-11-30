@@ -21,17 +21,6 @@
 
 using namespace std;
 
-const int BOT_TITLE_WIDTH = 15;
-const int BOT_NAME_WIDTH = 16;
-const int ABBREV_VOTE_WIDTH = 3;
-const int TOTAL_VOTE_WIDTH = 2;
-const int ALL_CLUBS_WIDTH = 9;
-
-const vector<string> CLUB_ABBREVIATIONS = {
-    "NL", "RG", "EC", "AE", "CH", 
-    "NC", "AX", "BL", "CY", "DL"
-};
-
 void Election::addClubs(const vector<string>& theClubs)
 {
     clubs = theClubs;
@@ -112,16 +101,16 @@ void Election::printWinner() const
 
 void Election::printFinalResults() const
 {
-    cout << "\t" << left << setw(BOT_TITLE_WIDTH) << "Bot";
+    cout << "\t" << left << setw(15) << "Bot";
 
     for (const string& abbr : CLUB_ABBREVIATIONS)
     {
-        cout << setw(ABBREV_VOTE_WIDTH) << abbr;
+        cout << setw(3) << abbr;
     }
 
     string stars(52, '*');
 
-    cout << setw(TOTAL_VOTE_WIDTH) << "" << "Total\n\t"
+    cout << setw(2) << "" << "Total\n\t"
         << stars << endl;
 
     for (const auto& pair : electoralVotes)
@@ -129,11 +118,11 @@ void Election::printFinalResults() const
         const string& botName = pair.first;
         const vector<int>& votes = pair.second;
 
-        cout << "\t" << setw(BOT_NAME_WIDTH) << left << botName;
+        cout << "\t" << setw(16) << left << botName;
 
         for (int vote : votes)
         {
-            cout << setw(ABBREV_VOTE_WIDTH) << vote;
+            cout << setw(3) << vote;
         }
 
         int totalVotes = accumulate(votes.begin(), votes.end(), 0);
@@ -145,13 +134,13 @@ void Election::printAllClubs() const
 {
     string divider(23, '-');
 
-    cout << "\t" << setw(ALL_CLUBS_WIDTH) << left << "CLUB"
+    cout << "\t" << setw(9) << left << "CLUB"
          << "(abbreviation)\n"
          << "\t" << divider << endl;
 
     for (size_t i = 0; i < clubs.size(); ++i)
     {
-        cout << "\t" << setw(ALL_CLUBS_WIDTH) << left << clubs[i]
+        cout << "\t" << setw(9) << left << clubs[i]
              << "(" << CLUB_ABBREVIATIONS[i] << ")" << endl;
     }
 }
