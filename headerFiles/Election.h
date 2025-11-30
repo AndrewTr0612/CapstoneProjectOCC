@@ -27,13 +27,15 @@ class Election {
 public:
     void addClubs(const std::vector<std::string>& theClubs);
 
-    void addBots(const std::string& botName, const std::vector<int>& votesForBot);
+    void addBots(const std::string& botName,
+                 const std::vector<int>& votesForBot);
 
     bool noDataFound() const;
 
     void printAllBots() const;
 
-    void printBotVotesFromClub(const std::string& botName, const std::string& clubName) const;
+    void printBotVotesFromClub(const std::string& botName,
+                               const std::string& clubName) const;
 
     void printBotTotalVotes(const std::string& botName) const;
 

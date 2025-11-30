@@ -26,7 +26,8 @@ void Election::addClubs(const vector<string>& theClubs)
     clubs = theClubs;
 }
 
-void Election::addBots(const string& botName, const vector<int>& votesForBot)
+void Election::addBots(const string& botName,
+                       const vector<int>& votesForBot)
 {
     electoralVotes[botName] = votesForBot;
 }
@@ -46,17 +47,20 @@ void Election::printAllBots() const
     }
 }
 
-void Election::printBotVotesFromClub(const string& botName, const string& clubName) const
+void Election::printBotVotesFromClub(const string& botName,
+                                     const string& clubName) const
 {
     auto clubIter = find(clubs.begin(), clubs.end(), clubName);
-    int clubIndex = static_cast<int>(distance(clubs.begin(), clubIter));
+    int clubIndex =
+        static_cast<int>(distance(clubs.begin(), clubIter));
 
     auto botIter = electoralVotes.find(botName);
     const vector<int>& votes = botIter->second;
 
     int voteCount = votes.at(clubIndex);
 
-    cout << "\n\t" << botName << " received " << voteCount << " vote(s) from " << clubName << "." << endl;
+    cout << "\n\t" << botName << " received " << voteCount
+         << " vote(s) from " << clubName << "." << endl;
 }
 
 void Election::printBotTotalVotes(const string& botName) const
@@ -70,7 +74,8 @@ void Election::printBotTotalVotes(const string& botName) const
     // It starts the sum at the initial value of 0.
     totalVotes = accumulate(votes.begin(), votes.end(), 0);
 
-    cout << "\n\t" << botName << " received a total of " << totalVotes << " vote(s)." << endl;
+    cout << "\n\t" << botName << " received a total of " 
+         << totalVotes << " vote(s)." << endl;
 }
 
 void Election::printWinner() const
@@ -96,7 +101,8 @@ void Election::printWinner() const
         }
     }
 
-    cout << "\tWinner: " << winningBot << " with " << highestVotes << " vote(s)." << endl;
+    cout << "\tWinner: " << winningBot << " with "
+         << highestVotes << " vote(s)." << endl;
 }
 
 void Election::printFinalResults() const
