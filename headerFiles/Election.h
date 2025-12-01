@@ -17,8 +17,8 @@
 #include <map> 
 #include <string>
 
-inline const int NUM_CLUBS = 10;
-inline const std::vector<std::string> CLUB_ABBREVIATIONS = {
+static const int NUM_CLUBS = 10;
+static const std::vector<std::string> CLUB_ABBREVIATIONS = {
     "NL", "RG", "EC", "AE", "CH",
     "NC", "AX", "BL", "CY", "DL"
 };
