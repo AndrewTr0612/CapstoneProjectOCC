@@ -13,6 +13,7 @@
 #include "BotType.h"
 
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -23,7 +24,8 @@ void BotType::printBotName() const
 
 void BotType::printBotInfo() const
 {
-	cout << name << "\t\t" << ability << "\t\t" << trait << endl;
+	cout << left << "\t" << setw(17) << name
+		 << "(" << ability << ", " << trait << ")" << endl;
 }
 
 bool BotType::operator< (const BotType& paramBot) const

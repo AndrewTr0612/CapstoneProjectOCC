@@ -13,6 +13,7 @@
 #include "BotList.h"
 
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -57,7 +58,11 @@ void BotList::printAllBotsNames() const
 
 void BotList::printAllBotsInfo() const
 {
-	cout << "Name\t\t\tAbility\t\t\tTrait\n";
+	string dash(34, '-');
+
+	cout << left << "\t" << setw(17) << "BOT NAME"
+		 << "(ability, trait)\n\t"
+		 << dash << "\n";
 
 	for (const auto& aBot : aBotSet)
 	{

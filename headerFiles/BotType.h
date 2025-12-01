@@ -20,8 +20,10 @@ class BotType
 public:
 	BotType() {}
 
-	BotType(const std::string& botName, const std::string& botAbility, const std::string& botTrait)
-		: name(botName), ability(botAbility), trait(botTrait) {}
+	BotType(const std::string& botName,
+			const std::string& botAbility,
+			const std::string& botTrait)
+			: name(botName), ability(botAbility), trait(botTrait) {}
 
 	std::string getBotName() const { return name; }
 
