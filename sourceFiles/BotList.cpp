@@ -17,22 +17,21 @@
 
 using namespace std;
 
-void BotList::insertBot(BotType& theBot)
+void BotList::insertBot(const BotType& theBot)
 {
 	aBotSet.insert(theBot);
 }
 
 int BotList::getCount() const
 {
-	return static_cast<int>(aBotSet.size());
+	return static_cast<int>(botList.size());
 }
 
-bool BotList::getBotByName(const string& name, BotType& outBot)
+bool BotList::getBotByName(const string& name, BotType& outBot) const
 {
 	BotType tempBotType(name, "", "");
-	auto iterSet = aBotSet.find(tempBotType);
 
-	if (iterSet != aBotSet.end())
+	if (iterSet != botList.end())
 	{
 		outBot = *iterSet;
 		return true;
@@ -43,14 +42,14 @@ bool BotList::getBotByName(const string& name, BotType& outBot)
 
 bool BotList::isEmpty() const
 {
-	return aBotSet.empty();
+	return botList.empty();
 }
 
 void BotList::printAllBotsNames() const
 {
 	cout << "Names:\n";
 
-	for (const auto& aBot : aBotSet)
+	for (const auto& aBot : botList)
 	{
 		aBot.printBotName();
 	}
@@ -64,7 +63,7 @@ void BotList::printAllBotsInfo() const
 		 << "(ability, trait)\n\t"
 		 << dash << "\n";
 
-	for (const auto& aBot : aBotSet)
+	for (const auto& aBot : botList)
 	{
 		aBot.printBotInfo();
 	}
