@@ -30,6 +30,7 @@ int BotList::getCount() const
 bool BotList::getBotByName(const string& name, BotType& outBot) const
 {
 	BotType tempBotType(name, "", "");
+	auto iterSet = botList.find(tempBotType);
 
 	if (iterSet != botList.end())
 	{
