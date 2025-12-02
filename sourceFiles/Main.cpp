@@ -10,7 +10,6 @@
     Bot Elections
 */
 
-#include "BotType.h"
 #include "BotList.h"
 #include "Election.h"
 #include "FileReader.h"
