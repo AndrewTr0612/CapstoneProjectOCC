@@ -20,11 +20,11 @@
 class BotList
 {
 public:
-	void insertBot(BotType& theBot);
+	void insertBot(const BotType& theBot);
 
 	int getCount() const;
 
-	bool getBotByName(const std::string& name, BotType& outBot);
+	bool getBotByName(const std::string& name, BotType& outBot) const;
 
 	bool isEmpty() const;
 
@@ -33,7 +33,7 @@ public:
 	void printAllBotsInfo() const;
 
 private:
-	std::set<BotType> aBotSet;
+	std::set<BotType> botList;
 };
 
 #endif
