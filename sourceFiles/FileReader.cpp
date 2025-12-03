@@ -11,12 +11,11 @@
 */
 
 #include "FileReader.h"
-#include "BotType.h"
 
-#include <iostream>
 #include <fstream>
-#include <string>
+#include <iostream>
 #include <sstream>
+#include <string>
 #include <vector>
 
 using namespace std;
@@ -68,14 +67,16 @@ void readElectionResults(Election& electionResults)
         stringstream voteStream(voteLine);
         string cell;
         getline(voteStream, cell, ',');
+
         vector<string> clubNames;
 
         while (getline(voteStream, cell, ','))
         {
             clubNames.push_back(cell);
         }
-
+        
         electionResults.addClubs(clubNames);
+
         string botName;
 
         while (getline(inputVoteFile, voteLine))
@@ -83,16 +84,16 @@ void readElectionResults(Election& electionResults)
             voteStream.clear();
             voteStream.str(voteLine);
             getline(voteStream, botName, ',');
+
             vector<int> votesForBot;
 
             while (getline(voteStream, cell, ','))
             {
                 votesForBot.push_back(stoi(cell));
             }
-
+            
             electionResults.addBots(botName, votesForBot);
         }
-
     }
     inputVoteFile.close();
 }
