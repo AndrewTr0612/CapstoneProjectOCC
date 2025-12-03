@@ -13,11 +13,8 @@
 #include "Election.h"
 
 #include <iostream>
+#include <iomanip>
 #include <numeric>
-#include <algorithm>
-#include <iterator> 
-#include <vector>
-#include <iomanip> 
 
 using namespace std;
 
