@@ -1,5 +1,5 @@
 /*
-	Shamaan, Alexander (team leader)
+	Shamaan, Alexander (Team leader)
 	Cruz, Alejandro
 	Truong, Andrew
 	Truong, Phillip
@@ -15,6 +15,7 @@
 
 #include "BotType.h"
 
+#include <string>
 #include <set>
 
 class BotList
@@ -23,17 +24,16 @@ public:
 	void insertBot(const BotType& theBot);
 
 	int getCount() const;
-
 	bool getBotByName(const std::string& name, BotType& outBot) const;
 
 	bool isEmpty() const;
 
 	void printAllBotsNames() const;
-
 	void printAllBotsInfo() const;
 
 private:
 	std::set<BotType> botList;
+
 };
 
 #endif

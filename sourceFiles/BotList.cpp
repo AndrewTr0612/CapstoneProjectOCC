@@ -1,5 +1,5 @@
 /*
-	Shamaan, Alexander (team leader)
+	Shamaan, Alexander (Team leader)
 	Cruz, Alejandro
 	Truong, Andrew
 	Truong, Phillip
@@ -30,6 +30,7 @@ int BotList::getCount() const
 bool BotList::getBotByName(const string& name, BotType& outBot) const
 {
 	BotType tempBotType(name, "", "");
+	auto iterSet = botList.find(tempBotType);
 
 	if (iterSet != botList.end())
 	{

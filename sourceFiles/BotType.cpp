@@ -1,5 +1,5 @@
 /*
-	Shamaan, Alexander (team leader)
+	Shamaan, Alexander (Team leader)
 	Cruz, Alejandro
 	Truong, Andrew
 	Truong, Phillip
@@ -16,6 +16,21 @@
 #include <iomanip>
 
 using namespace std;
+
+string BotType::getBotName() const 
+{ 
+	return name; 
+}
+
+string BotType::getBotAbility() const 
+{ 
+	return ability; 
+}
+
+string BotType::getBotTrait() const 
+{ 
+	return trait; 
+}
 
 void BotType::printBotName() const
 {

@@ -1,5 +1,5 @@
 /*
-    Shamaan, Alexander (team leader)
+    Shamaan, Alexander (Team leader)
     Cruz, Alejandro
     Truong, Andrew
     Truong, Phillip
@@ -10,7 +10,6 @@
     Bot Elections
 */
 
-#include "BotType.h"
 #include "BotList.h"
 #include "Election.h"
 #include "FileReader.h"

@@ -1,5 +1,5 @@
 /*
-    Shamaan, Alexander (team leader)
+    Shamaan, Alexander (Team leader)
     Cruz, Alejandro
     Truong, Andrew
     Truong, Phillip
