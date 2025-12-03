@@ -23,8 +23,10 @@ int main()
 {
     BotList aBotList;
     readBotData(aBotList);
+    
     Election botElection;
     readElectionResults(botElection);
+    
     displayMenu();
     processMenu(aBotList, botElection);
 
