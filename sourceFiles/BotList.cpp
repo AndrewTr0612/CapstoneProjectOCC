@@ -19,7 +19,7 @@ using namespace std;
 
 void BotList::insertBot(const BotType& theBot)
 {
-	aBotSet.insert(theBot);
+	botList.insert(theBot);
 }
 
 int BotList::getCount() const
