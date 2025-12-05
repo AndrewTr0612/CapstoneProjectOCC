@@ -31,9 +31,9 @@ void readBotData(BotList& botList)
     else
     {
         string botLine,
-            botName,
-            botAbility,
-            botTrait;
+               botName,
+               botAbility,
+               botTrait;
 
         getline(inputBotFile, botLine);
 
