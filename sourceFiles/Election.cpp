@@ -64,7 +64,6 @@ void Election::printBotTotalVotes(const string& botName) const
 {
     int totalVotes = 0;
     auto botIter = electoralVotes.find(botName);
-
     const vector<int>& votes = botIter->second;
 
     // Use std::accumulate to sum all votes for the selected bot.
@@ -129,17 +128,16 @@ void Election::printFinalResults() const
         }
 
         int totalVotes = accumulate(votes.begin(), votes.end(), 0);
+
         cout << setw(4) << "" << right << totalVotes << endl;
     }
 }
 
 void Election::printAllClubs() const
 {
-    string divider(23, '-');
-
     cout << "\t" << setw(9) << left << "CLUB"
-         << "(abbreviation)\n"
-         << "\t" << divider << endl;
+        << "(abbreviation)\n"
+        << "\t" << string(23, '-') << endl;
 
     for (size_t i = 0; i < clubs.size(); ++i)
     {
