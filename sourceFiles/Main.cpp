@@ -10,9 +10,9 @@
     Bot Elections
 */
 
+#include "FileReader.h"
 #include "BotList.h"
 #include "Election.h"
-#include "FileReader.h"
 #include "Interface.h"
 
 #include <iostream>

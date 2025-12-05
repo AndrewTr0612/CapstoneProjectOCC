@@ -33,7 +33,5 @@ public:
 
 private:
 	std::set<BotType> botList;
-
 };
-
 #endif

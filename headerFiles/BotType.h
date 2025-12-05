@@ -38,5 +38,4 @@ private:
 	std::string ability;
 	std::string trait;
 };
-
 #endif

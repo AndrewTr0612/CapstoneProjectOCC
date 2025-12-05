@@ -21,19 +21,17 @@ using namespace std;
 void displayMenu()
 {
     // Your code here...
-    string stars(45, '*');
-
-    cout << stars << "\n"
-         << "\t\tMAIN MENU\n"
-         << stars << "\n\n"
-         << "Select one of the following:\n\n"
-         << "\t1: Print all bots\n"
-         << "\t2: Print all clubs\n"
-         << "\t3: Print a bot's votes from a club\n"
-         << "\t4: Print a bot's total votes\n"
-         << "\t5: Print winner\n"
-         << "\t6: Print final results\n"
-         << "\t7: To exit\n" << endl;
+    cout << string(45, '*') << "\n"
+        << "\t\tMAIN MENU\n"
+        << string(45, '*') << "\n\n"
+        << "Select one of the following:\n\n"
+        << "\t1: Print all bots\n"
+        << "\t2: Print all clubs\n"
+        << "\t3: Print a bot's votes from a club\n"
+        << "\t4: Print a bot's total votes\n"
+        << "\t5: Print winner\n"
+        << "\t6: Print final results\n"
+        << "\t7: To exit\n" << endl;
 }
 
 // Definition function exitMessage

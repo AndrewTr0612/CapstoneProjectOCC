@@ -18,13 +18,14 @@
 #include <string>
 
 static const int NUM_CLUBS = 10;
-
-static const std::vector<std::string> CLUB_ABBREVIATIONS = {
+static const std::vector<std::string> CLUB_ABBREVIATIONS = 
+{
     "NL", "RG", "EC", "AE", "CH",
     "NC", "AX", "BL", "CY", "DL"
 };
 
-class Election {
+class Election 
+{
 public:
     void addClubs(const std::vector<std::string>& theClubs);
     void addBots(const std::string& botName,
@@ -44,5 +45,4 @@ private:
     std::vector<std::string> clubs;
     std::map<std::string, std::vector<int>>electoralVotes;
 };
-
 #endif

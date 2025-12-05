@@ -31,9 +31,9 @@ void readBotData(BotList& botList)
     else
     {
         string botLine,
-            botName,
-            botAbility,
-            botTrait;
+               botName,
+               botAbility,
+               botTrait;
 
         getline(inputBotFile, botLine);
 
@@ -47,8 +47,9 @@ void readBotData(BotList& botList)
             BotType aBot(botName, botAbility, botTrait);
             botList.insertBot(aBot);
         }
+
+        inputBotFile.close();
     }
-    inputBotFile.close();
 }
 
 void readElectionResults(Election& electionResults)
@@ -94,6 +95,7 @@ void readElectionResults(Election& electionResults)
             
             electionResults.addBots(botName, votesForBot);
         }
+
+        inputVoteFile.close();
     }
-    inputVoteFile.close();
 }

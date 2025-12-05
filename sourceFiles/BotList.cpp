@@ -19,7 +19,7 @@ using namespace std;
 
 void BotList::insertBot(const BotType& theBot)
 {
-	aBotSet.insert(theBot);
+	botList.insert(theBot);
 }
 
 int BotList::getCount() const
@@ -58,11 +58,9 @@ void BotList::printAllBotsNames() const
 
 void BotList::printAllBotsInfo() const
 {
-	string dash(34, '-');
-
 	cout << left << "\t" << setw(17) << "BOT NAME"
 		 << "(ability, trait)\n\t"
-		 << dash << "\n";
+		 << string(34, '-') << "\n";
 
 	for (const auto& aBot : botList)
 	{
