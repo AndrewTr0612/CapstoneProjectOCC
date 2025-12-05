@@ -110,10 +110,8 @@ void Election::printFinalResults() const
         cout << setw(3) << abbr;
     }
 
-    string stars(52, '*');
-
     cout << setw(2) << "" << "Total\n\t"
-        << stars << endl;
+         << string(52, '*') << endl;
 
     for (const auto& pair : electoralVotes)
     {
