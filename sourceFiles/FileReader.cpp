@@ -70,6 +70,7 @@ void readElectionResults(Election& electionResults)
         getline(voteStream, cell, ',');
 
         vector<string> clubNames;
+        clubNames.reserve(NUM_CLUBS);
 
         while (getline(voteStream, cell, ','))
         {
@@ -87,6 +88,7 @@ void readElectionResults(Election& electionResults)
             getline(voteStream, botName, ',');
 
             vector<int> votesForBot;
+            votesForBot.reserve(NUM_CLUBS);
 
             while (getline(voteStream, cell, ','))
             {
